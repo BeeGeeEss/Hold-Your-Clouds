@@ -1,0 +1,98 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  font-family: "Roboto Condensed", sans-serif;
+  line-height: 1.6;
+
+  background-color: #ffffff;
+  color: #222222;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* =========================
+   IMAGES
+========================= */
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* =========================
+   HEADINGS
+========================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+
+  font-family: "Gotham", "Roboto", sans-serif;
+  line-height: 1.2;
+}
+
+/* =========================
+   LAYOUT
+========================= */
+
+#root {
+  min-height: 100vh;
+}
+
+main {
+  width: 100%;
+}
+
+/* =========================
+   BLOG
+========================= */
+
+.blog-post {
+  width: min(100% - 2rem, 900px);
+  margin: 0 auto;
+}
+
+.markdown-content {
+  font-size: 1.1rem;
+}
+
+.markdown-content p {
+  margin-bottom: 1.5rem;
+}
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
+:focus-visible {
+  outline: 3px solid #8c52ff;
+  outline-offset: 3px;
+}

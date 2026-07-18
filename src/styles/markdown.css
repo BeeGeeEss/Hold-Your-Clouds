@@ -1,0 +1,34 @@
+.markdown-content {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.markdown-content h1 {
+  font-size: 2.5rem;
+  margin-top: 2rem;
+}
+
+.markdown-content h2 {
+  margin-top: 2rem;
+}
+
+.markdown-content p {
+  margin-bottom: 1rem;
+}
+
+.markdown-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+.markdown-content pre {
+  padding: 1rem;
+  overflow-x: auto;
+  border-radius: 8px;
+}
+
+.markdown-content blockquote {
+  border-left: 4px solid #8c52ff;
+  padding-left: 1rem;
+}
