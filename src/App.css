@@ -13,14 +13,35 @@
 }
 
 /* =========================
+   SITE LAYOUT
+========================= */
+
+.site-layout {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr) 120px;
+
+  width: 100%;
+  min-height: 100vh;
+}
+
+.left-sidebar,
+.right-sidebar {
+  background-color: var(--color-cosmic-navy);
+}
+
+.main-column {
+  width: 100%;
+  min-width: 0;
+}
+
+/* =========================
    PAGE CONTAINER
 ========================= */
 
 .page-container {
-  width: 100%;
-  max-width: 1200px;
+  width: min(100% - 2rem, 1200px);
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 2rem 0;
 }
 
 /* =========================
@@ -28,19 +49,16 @@
 ========================= */
 
 .blog-post {
-  width: 100%;
-  max-width: 900px;
+  width: min(100% - 2rem, 900px);
   margin: 0 auto;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+.markdown-content {
+  font-size: 1.1rem;
+}
 
-@media (min-width: 768px) {
-  .page-container {
-    padding: 3rem 2rem;
-  }
+.markdown-content p {
+  margin-bottom: 1.5rem;
 }
 
 /* =========================
@@ -60,4 +78,25 @@
 
 .hero-button:hover {
   background-color: var(--color-primary-light);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (min-width: 768px) {
+  .page-container {
+    padding: 3rem 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .site-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .left-sidebar,
+  .right-sidebar {
+    display: none;
+  }
 }
