@@ -19,7 +19,6 @@
 .site-layout {
   display: grid;
   grid-template-columns: 120px minmax(0, 1fr) 120px;
-
   width: 100%;
   min-height: 100vh;
 }
