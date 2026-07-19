@@ -42,3 +42,22 @@
     padding: 3rem 2rem;
   }
 }
+
+/* =========================
+   BRANDING
+========================= */
+
+.hero {
+  background-color: var(--color-cosmic-navy);
+  color: var(--color-text-light);
+}
+
+.hero-button {
+  background-color: var(--color-primary);
+  color: var(--color-starlight-cream);
+  box-shadow: var(--shadow-purple);
+}
+
+.hero-button:hover {
+  background-color: var(--color-primary-light);
+}

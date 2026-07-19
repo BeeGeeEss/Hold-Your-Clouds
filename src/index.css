@@ -1,51 +1,96 @@
 /* =========================
-   GLOBAL RESET
-========================= */
+   HOLD YOUR CLOUDS
+   Global Brand Styles
+   ========================= */
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+  /* =========================
+     Brand Colours
+     ========================= */
+
+  --color-cosmic-navy: #0b0d2b;
+  --color-midnight-indigo: #171936;
+
+  --color-cloud-purple: #8c52ff;
+  --color-soft-lavender: #b58cff;
+  --color-dreamy-lilac: #d8b4fe;
+
+  --color-cosmic-pink: #f3a6d8;
+
+  --color-starlight-cream: #fff8f2;
+  --color-soft-white: #f7f5ff;
+
+  /* =========================
+     Semantic Colours
+     These describe how colours
+     are used in the website
+     ========================= */
+
+  --color-background: var(--color-soft-white);
+  --color-surface: #ffffff;
+
+  --color-primary: var(--color-cloud-purple);
+  --color-primary-light: var(--color-soft-lavender);
+
+  --color-text: var(--color-midnight-indigo);
+  --color-text-light: var(--color-starlight-cream);
+
+  --color-accent: var(--color-cosmic-pink);
+
+  /* =========================
+     Borders & Shadows
+     ========================= */
+
+  --color-border: #e5dff2;
+
+  --shadow-soft: 0 8px 30px rgba(23, 25, 54, 0.08);
+  --shadow-purple: 0 8px 30px rgba(140, 82, 255, 0.25);
+
+  /* =========================
+     Border Radius
+     ========================= */
+
+  --radius-small: 8px;
+  --radius-medium: 16px;
+  --radius-large: 24px;
+  --radius-pill: 999px;
 }
 
 /* =========================
-   HTML & BODY
-========================= */
+   Global Reset
+   ========================= */
+
+* {
+  box-sizing: border-box;
+}
 
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  min-width: 320px;
-  min-height: 100vh;
+  margin: 0;
+  background-color: var(--color-background);
+  color: var(--color-text);
+
+  font-family: Arial, sans-serif;
 }
 
 /* =========================
-   ROOT
-========================= */
+   Global Elements
+   ========================= */
 
-#root {
-  min-height: 100vh;
+a {
+  color: var(--color-primary);
+  text-decoration: none;
 }
 
-/* =========================
-   MEDIA
-========================= */
-
-img,
-svg {
-  display: block;
-  max-width: 100%;
+a:hover {
+  color: var(--color-primary-light);
 }
 
-/* =========================
-   FORM ELEMENTS
-========================= */
-
-button,
-input,
-textarea,
-select {
+button {
+  border: none;
+  cursor: pointer;
   font: inherit;
 }

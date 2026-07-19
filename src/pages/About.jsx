@@ -1,3 +1,9 @@
+import MainLayout from "../components/layout/MainLayout";
+
 export default function About() {
-  return <h1>About page works!</h1>;
+  return (
+    <>
+      <MainLayout />
+    </>
+  );
 }
