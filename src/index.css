@@ -94,3 +94,31 @@ button {
   cursor: pointer;
   font: inherit;
 }
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.site-layout {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr) 150px;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.left-sidebar {
+  background-color: #0b0d2b;
+}
+
+.right-sidebar {
+  background-color: #0b0d2b;
+}
+
+.main-column {
+  min-width: 0;
+  width: 100%;
+}

@@ -1,8 +1,9 @@
 import { useMediaQuery } from "@mui/material";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import lightLogo from "/src/assets/light-logo.png";
-import darkLogo from "/src/assets/dark-banner.png";
+import darkBanner from "/src/assets/dark-banner.png";
+import lightBanner from "/src/assets/light-banner.png";
 
 function Header() {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
@@ -13,8 +14,8 @@ function Header() {
   const logo = isContactPage
     ? lightLogo
     : prefersDarkMode
-      ? darkLogo
-      : lightLogo;
+      ? darkBanner
+      : lightBanner;
 
   return (
     <header
@@ -27,16 +28,25 @@ function Header() {
         backgroundColor: isContactPage ? "#FFFFFF" : "transparent",
       }}
     >
-      <img
-        src={logo}
-        alt="Hold Your Clouds Banner"
+      <Link
+        to="/contact"
         style={{
           display: "block",
-          width: isContactPage ? "800px" : "100%",
-          height: "auto",
-          margin: isContactPage ? "0 auto" : 0,
+          width: "100%",
+          cursor: "pointer",
         }}
-      />
+      >
+        <img
+          src={logo}
+          alt="Hold Your Clouds Banner"
+          style={{
+            display: "block",
+            width: isContactPage ? "450px" : "100%",
+            height: "auto",
+            margin: isContactPage ? "0 auto" : 0,
+          }}
+        />
+      </Link>
     </header>
   );
 }

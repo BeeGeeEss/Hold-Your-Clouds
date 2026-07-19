@@ -1,20 +1,26 @@
-import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Navbar from "./NavBar";
 import Footer from "./Footer";
+import { Outlet } from "react-router-dom";
 
 function MainLayout() {
   return (
-    <>
-      <Header />
-      <Navbar />
+    <div className="site-layout">
+      <aside className="left-sidebar"></aside>
 
-      <main>
-        <Outlet />
-      </main>
+      <div className="main-column">
+        <Header />
+        <Navbar />
 
-      <Footer />
-    </>
+        <main>
+          <Outlet />
+        </main>
+
+        <Footer />
+      </div>
+
+      <aside className="right-sidebar"></aside>
+    </div>
   );
 }
 

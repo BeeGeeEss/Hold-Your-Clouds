@@ -96,3 +96,30 @@ main {
   outline: 3px solid #8c52ff;
   outline-offset: 3px;
 }
+
+.site-layout {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr) 120px;
+  min-height: 100vh;
+}
+
+.left-sidebar,
+.right-sidebar {
+  background-color: #f5f5f5;
+}
+
+.main-column {
+  width: 100%;
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .site-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .left-sidebar,
+  .right-sidebar {
+    display: none;
+  }
+}
