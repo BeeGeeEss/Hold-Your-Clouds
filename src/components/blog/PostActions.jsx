@@ -5,7 +5,7 @@ import { Box, Button, Divider, TextField, Typography } from "@mui/material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
-import GiscusComments from "./GiscusComments";
+import GiscusComments from "../shared/GiscusComments";
 
 export default function PostActions({ post }) {
   const storageKey = `liked-post-${post.slug}`;

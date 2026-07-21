@@ -8,9 +8,9 @@ export default function GiscusComments() {
     <section>
       <Giscus
         repo="BeeGeeEss/Hold-Your-Clouds"
-        repoId="YOUR_REPOSITORY_ID"
+        repoId="R_kgDOTcMoug"
         category="Announcements"
-        categoryId="YOUR_CATEGORY_ID"
+        categoryId="DIC_kwDOTcMous4DBn-X"
         mapping="pathname"
         reactionsEnabled="1"
         emitMetadata="0"

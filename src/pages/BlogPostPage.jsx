@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 
 import posts from "../data/posts";
-import BlogPost from "../components/BlogPost";
+import BlogPost from "../components/blog/BlogPost";
 
 export default function BlogPostPage() {
   const { slug } = useParams();
