@@ -85,6 +85,54 @@
 }
 
 /* =========================
+   HOMEPAGE HEADER
+========================= */
+
+.home-header {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr) 120px;
+
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  line-height: 0;
+  text-align: center;
+}
+
+.header-sidebar {
+  background-color: var(--color-cosmic-navy);
+}
+
+.home-banner {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+/* =========================
+   STANDARD HEADER
+========================= */
+
+.standard-header {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  line-height: 0;
+  text-align: center;
+}
+
+.standard-logo {
+  display: block;
+  width: 350px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* =========================
    RESPONSIVE
 ========================= */
 
@@ -100,7 +148,21 @@
   }
 
   .left-sidebar,
-  .right-sidebar {
+  .right-sidebar,
+  .header-sidebar {
     display: none;
+  }
+
+  /* Make the homepage header full width */
+  .home-header {
+    display: block;
+    width: 100%;
+  }
+
+  .home-banner {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
   }
 }

@@ -9,25 +9,29 @@ function Header() {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
   const location = useLocation();
 
-  const isContactPage = location.pathname === "/contact";
+  const isHomePage = location.pathname === "/";
 
-  const logo = isContactPage
-    ? lightLogo
-    : prefersDarkMode
+  // Homepage responds to theme
+  // All other pages always use the light logo
+  const image = isHomePage
+    ? prefersDarkMode
       ? darkBanner
-      : lightBanner;
+      : lightBanner
+    : lightLogo;
 
   return (
     <header
+      className={isHomePage ? "home-header" : "standard-header"}
       style={{
-        width: "100%",
-        margin: 0,
-        padding: 0,
-        lineHeight: 0,
-        textAlign: "center",
-        backgroundColor: isContactPage ? "#FFFFFF" : "transparent",
+        backgroundColor: isHomePage
+          ? prefersDarkMode
+            ? "#121212"
+            : "#FFFFFF"
+          : "#FFFFFF",
       }}
     >
+      {isHomePage && <div className="header-sidebar" />}
+
       <Link
         to="/contact"
         style={{
@@ -37,16 +41,13 @@ function Header() {
         }}
       >
         <img
-          src={logo}
+          src={image}
           alt="Hold Your Clouds Banner"
-          style={{
-            display: "block",
-            width: isContactPage ? "450px" : "100%",
-            height: "auto",
-            margin: isContactPage ? "0 auto" : 0,
-          }}
+          className={isHomePage ? "home-banner" : "standard-logo"}
         />
       </Link>
+
+      {isHomePage && <div className="header-sidebar" />}
     </header>
   );
 }
