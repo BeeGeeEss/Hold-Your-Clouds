@@ -1,34 +1,56 @@
 .markdown-content {
-  max-width: 800px;
-  margin: 0 auto;
-  line-height: 1.7;
+  line-height: 1.8;
+  font-size: 1.05rem;
 }
 
-.markdown-content h1 {
-  font-size: 2.5rem;
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3 {
   margin-top: 2rem;
-}
-
-.markdown-content h2 {
-  margin-top: 2rem;
-}
-
-.markdown-content p {
   margin-bottom: 1rem;
 }
 
-.markdown-content img {
-  max-width: 100%;
-  height: auto;
+.markdown-content p {
+  margin-bottom: 1.5rem;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+}
+
+.markdown-content li {
+  margin-bottom: 0.5rem;
+}
+
+.markdown-content blockquote {
+  margin: 2rem 0;
+  padding: 1rem 1.5rem;
+  border-left: 4px solid #8c52ff;
+  background: rgba(140, 82, 255, 0.08);
+}
+
+.markdown-content code {
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  background: rgba(128, 128, 128, 0.15);
 }
 
 .markdown-content pre {
   padding: 1rem;
   overflow-x: auto;
   border-radius: 8px;
+  background: #1e1e1e;
+  color: white;
 }
 
-.markdown-content blockquote {
-  border-left: 4px solid #8c52ff;
-  padding-left: 1rem;
+.markdown-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.markdown-content a {
+  color: #8c52ff;
 }

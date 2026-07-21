@@ -1,3 +1,12 @@
-export default function BlogPost() {
-  return <h1>Blog page works!</h1>;
+import { useParams } from "react-router-dom";
+
+import posts from "../data/posts";
+import BlogPost from "../components/BlogPost";
+
+export default function BlogPostPage() {
+  const { slug } = useParams();
+
+  const post = posts.find((post) => post.slug === slug);
+
+  return <BlogPost post={post} />;
 }
