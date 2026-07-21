@@ -1,27 +1,29 @@
-import Header from "./Header";
-import Navbar from "./NavBar";
-import Footer from "./Footer";
 import { Outlet } from "react-router-dom";
 
-function MainLayout() {
+import Header from "../layout/Header";
+import NavBar from "../layout/NavBar";
+import Footer from "../layout/Footer";
+
+export default function MainLayout() {
   return (
-    <div className="site-layout">
-      <aside className="left-sidebar"></aside>
+    <div className="app">
+      <Header />
 
-      <div className="main-column">
-        <Header />
-        <Navbar />
+      <NavBar />
 
-        <main>
-          <Outlet />
-        </main>
+      <main className="app-content">
+        <div className="site-layout">
+          <aside className="left-sidebar" />
 
-        <Footer />
-      </div>
+          <section className="main-column">
+            <Outlet />
+          </section>
 
-      <aside className="right-sidebar"></aside>
+          <aside className="right-sidebar" />
+        </div>
+      </main>
+
+      <Footer />
     </div>
   );
 }
-
-export default MainLayout;

@@ -1,9 +1,9 @@
-import MainLayout from "../components/layout/MainLayout";
-
 export default function Home() {
   return (
-    <>
-      <MainLayout />
-    </>
+    <div className="page-container">
+      <h1>Welcome to Hold Your Clouds</h1>
+
+      <p>Welcome to my personal website and blog.</p>
+    </div>
   );
 }
