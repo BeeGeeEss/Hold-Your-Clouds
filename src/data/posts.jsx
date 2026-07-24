@@ -11,7 +11,8 @@ const posts = [
     category: "Web Development",
     date: "2026-07-21",
     readTime: "5 min read",
-    image: null,
+    image:
+      "https://images.unsplash.com/photo-1522152302542-71a8e5172aa1?q=80&w=1008&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     content: becomingAWebDeveloper,
   },
 

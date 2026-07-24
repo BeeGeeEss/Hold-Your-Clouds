@@ -12,6 +12,10 @@ const theme = createTheme({
       main: "#7ED957",
     },
 
+    tertiary: {
+      main: "#d8b4fe",
+    },
+
     background: {
       default: "#F9F7FC",
       paper: "#FFFFFF",
@@ -25,6 +29,13 @@ const theme = createTheme({
 
   typography: {
     fontFamily: '"Roboto Condensed", sans-serif',
+
+    overline: {
+      fontSize: "0.9rem",
+      fontWeight: 700,
+      letterSpacing: "1.5px",
+      textTransform: "uppercase",
+    },
 
     h1: {
       fontFamily: '"Gotham", "Roboto", sans-serif',

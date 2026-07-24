@@ -8,16 +8,18 @@ import {
   Typography,
 } from "@mui/material";
 import { Link } from "react-router-dom";
+
 import CodeIcon from "@mui/icons-material/Code";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import MenuBookIcon from "@mui/icons-material/MenuBook";
-import LocalCafeIcon from "@mui/icons-material/LocalCafe";
+import Diversity1OutlinedIcon from "@mui/icons-material/Diversity1Outlined";
+import EmojiObjectsOutlinedIcon from "@mui/icons-material/EmojiObjectsOutlined";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 import BlogCard from "../components/blog/BlogCard";
 import LightLogo from "../assets/light-logo.png";
-import AuthorImage from "../assets/profile.png";
+import AuthorImage from "../assets/profile.jpg";
 import posts from "../data/posts";
+import SubscribeForm from "../components/shared/SubscribeForm";
 
 export default function HomePage() {
   const latestPosts = posts.slice(0, 3);
@@ -74,8 +76,8 @@ export default function HomePage() {
                   fontWeight: 400,
                 }}
               >
-                A space for thoughts on web development, personal growth, and
-                creating a life — and code — you love.
+                A space for thoughts on web development - and creating code I
+                love.
               </Typography>
 
               <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
@@ -100,7 +102,7 @@ export default function HomePage() {
               </Stack>
             </Grid>
 
-            {/* HERO IMAGE / ILLUSTRATION */}
+            {/* HERO IMAGE */}
             <Grid size={{ xs: 12, md: 6 }}>
               <Box
                 sx={{
@@ -141,42 +143,47 @@ export default function HomePage() {
             borderRadius: 4,
           }}
         >
-          <Grid container spacing={4}>
+          <Grid container spacing={3}>
             <Topic
-              icon={<CodeIcon />}
+              icon={<CodeIcon sx={{ color: "background.paper" }} />}
               title="Web Development"
               text="Tips, tutorials and lessons from my coding journey."
             />
 
             <Topic
-              icon={<FavoriteBorderIcon />}
-              title="Wellness & Mindset"
-              text="Thoughts on mental health, balance and growth."
+              icon={<FavoriteBorderIcon sx={{ color: "background.paper" }} />}
+              title="Focus & Mindset"
+              text="A millennial girl's perspective on a male dominated industry."
             />
 
             <Topic
-              icon={<MenuBookIcon />}
+              icon={
+                <EmojiObjectsOutlinedIcon sx={{ color: "background.paper" }} />
+              }
+              title="Problem-Solving"
+              text="Getting creative with solutions to common problems."
+            />
+
+            <Topic
+              icon={
+                <Diversity1OutlinedIcon sx={{ color: "background.paper" }} />
+              }
               title="Learning in Public"
               text="Sharing what I'm learning and building in real time."
-            />
-
-            <Topic
-              icon={<LocalCafeIcon />}
-              title="Life & Everything"
-              text="A little bit of life, books, random thoughts and more."
             />
           </Grid>
         </Paper>
       </Container>
 
-      {/* FEATURED POST + ABOUT */}
+      {/* FEATURED POST + ABOUT ME */}
       <Container
         maxWidth="lg"
         sx={{
-          py: { xs: 8, md: 10 },
+          pt: { xs: 7, md: 8 },
+          pb: { xs: 6, md: 8 },
         }}
       >
-        <Grid container spacing={5}>
+        <Grid container spacing={{ xs: 5, md: 6 }}>
           {/* FEATURED POST */}
           <Grid size={{ xs: 12, md: 7 }}>
             <SectionHeading
@@ -203,13 +210,14 @@ export default function HomePage() {
                           height: "100%",
                           minHeight: 280,
                           objectFit: "cover",
+                          display: "block",
                         }}
                       />
                     )}
                   </Grid>
 
                   <Grid size={{ xs: 12, md: 6 }}>
-                    <Box sx={{ p: 4 }}>
+                    <Box sx={{ p: { xs: 3, md: 3.5 } }}>
                       <Typography
                         variant="overline"
                         color="primary"
@@ -251,13 +259,12 @@ export default function HomePage() {
           <Grid size={{ xs: 12, md: 5 }}>
             <SectionHeading
               label="Hi, I'm the author"
-              title="Hey, I'm Brando 👋"
+              title="Hey, I'm Brando! ☁"
             />
 
             <Paper
               sx={{
-                p: 4,
-                height: "100%",
+                p: { xs: 3, md: 3.5 },
                 borderRadius: 4,
               }}
             >
@@ -271,10 +278,11 @@ export default function HomePage() {
                   src={AuthorImage}
                   alt="Brando"
                   sx={{
-                    width: 110,
-                    height: 110,
+                    width: 100,
+                    height: 100,
                     borderRadius: "50%",
                     objectFit: "cover",
+                    flexShrink: 0,
                   }}
                 />
 
@@ -284,7 +292,7 @@ export default function HomePage() {
                     student, and a firm believer in progress over perfection.
                   </Typography>
 
-                  <Typography variant="body1" sx={{ mb: 3 }}>
+                  <Typography variant="body1" sx={{ mb: 2 }}>
                     This blog is where I share what I'm learning, building and
                     discovering along the way.
                   </Typography>
@@ -304,23 +312,36 @@ export default function HomePage() {
       </Container>
 
       {/* LATEST POSTS */}
-      <Container maxWidth="lg" sx={{ pb: { xs: 8, md: 10 } }}>
+      <Container
+        maxWidth="lg"
+        sx={{
+          pb: { xs: 8, md: 10 },
+        }}
+      >
         <Box
           sx={{
             display: "flex",
             justifyContent: "space-between",
-            alignItems: "center",
-            mb: 4,
+            alignItems: { xs: "flex-start", sm: "flex-end" },
+            mb: 3,
           }}
         >
           <SectionHeading label="Latest Posts" title="What's new" />
 
-          <Button component={Link} to="/blog" endIcon={<ArrowForwardIcon />}>
+          <Button
+            component={Link}
+            to="/blog"
+            endIcon={<ArrowForwardIcon />}
+            sx={{
+              mb: { xs: 0, sm: 0.5 },
+              flexShrink: 0,
+            }}
+          >
             View all posts
           </Button>
         </Box>
 
-        <Grid container spacing={4}>
+        <Grid container spacing={3}>
           {latestPosts.map((post) => (
             <Grid key={post.id || post.slug} size={{ xs: 12, md: 4 }}>
               <BlogCard post={post} />
@@ -330,57 +351,7 @@ export default function HomePage() {
       </Container>
 
       {/* SUBSCRIBE SECTION */}
-      <Box
-        sx={{
-          py: 8,
-          backgroundColor: "primary.light",
-        }}
-      >
-        <Container maxWidth="md">
-          <Paper
-            sx={{
-              p: { xs: 4, md: 6 },
-              borderRadius: 4,
-              textAlign: "center",
-            }}
-          >
-            <Typography variant="h3" sx={{ mb: 2 }}>
-              Enjoying the content?
-            </Typography>
-
-            <Typography color="text.secondary" sx={{ mb: 4 }}>
-              Subscribe to get new posts and updates in your inbox.
-            </Typography>
-
-            <Stack
-              direction={{ xs: "column", sm: "row" }}
-              spacing={2}
-              justifyContent="center"
-            >
-              <Box
-                component="input"
-                type="email"
-                placeholder="Your email address"
-                sx={{
-                  flex: 1,
-                  maxWidth: 400,
-                  px: 2,
-                  py: 1.5,
-                  borderRadius: 2,
-                  border: "1px solid",
-                  borderColor: "divider",
-                  fontSize: "1rem",
-                  backgroundColor: "background.paper",
-                }}
-              />
-
-              <Button variant="contained" size="large">
-                Subscribe
-              </Button>
-            </Stack>
-          </Paper>
-        </Container>
-      </Box>
+      <SubscribeForm />
     </Box>
   );
 }
