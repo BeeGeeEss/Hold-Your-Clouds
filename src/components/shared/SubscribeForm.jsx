@@ -35,6 +35,7 @@ export default function SubscribeForm() {
       setStatus("success");
       setEmail("");
     } catch (error) {
+      console.error("Subscription error:", error);
       setStatus("error");
     }
   }
@@ -112,6 +113,7 @@ export default function SubscribeForm() {
           )}
         </Paper>
       </Container>
+      ){" "}
     </Box>
   );
 }
