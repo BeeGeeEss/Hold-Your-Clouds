@@ -61,7 +61,7 @@ The application is built with React and Vite, styled with Material UI, and deplo
 - Brevo
 - GitHub
 
-### Deployment
+### Deployment Services
 
 - Netlify
 
@@ -69,52 +69,64 @@ The application is built with React and Vite, styled with Material UI, and deplo
 
 ## Project Structure
 
-```text
-src/
-├── assets/
-│   ├── images/
-│   └── logos/
-│
-├── components/
-│   ├── blog/
-│   │   ├── BlogCard.jsx
-│   │   ├── BlogList.jsx
-│   │   ├── BlogPost.jsx
-│   │   └── PostActions.jsx
-│   │
-│   ├── layout/
-│   │   ├── Header.jsx
-│   │   ├── Navbar.jsx
-│   │   ├── Footer.jsx
-│   │   └── MainLayout.jsx
-│   │
-│   └── shared/
-│       └── GiscusComments.jsx
-│
-├── data/
-│   └── posts.js
-│
-├── pages/
-│   ├── HomePage.jsx
-│   ├── AboutPage.jsx
-│   ├── BlogPage.jsx
-│   ├── BlogPostPage.jsx
-│   ├── ContactPage.jsx
-│   └── NotFound.jsx
-│
-├── styles/
-│   └── markdown.css
-│
-├── App.jsx
-├── main.jsx
-└── theme.js
+```js
 
-netlify/
-└── functions/
-    └── subscribe.js
+📁 Hold-Your-Clouds
+    📁 netlify
+        📁 functions
+            ─ subscribe.js
+    📁 public
+        ─ favicon.svg
+        ─ react-logo.svg
+    📁 src
+        📁 assets
+            ─ profile.jpg
+            ─ under-construction.svg
+        📁 components
+            📁 blog
+                ─ BlogCard.jsx
+                ─ BlogList.jsx
+                ─ BlogPost.jsx
+                ─ PostActions.jsx
+            📁 layout
+                ─ Footer.jsx
+                ─ Header.jsx
+                ─ MainLayout.jsx
+                ─ NavBar.jsx
+            📁 shared
+                ─ GiscusComments.jsx
+                ─ SubscribeForm.jsx
+        📁 data
+            ─ posts.jsx
+        📁 pages
+            ─ About.jsx
+            ─ Blog.jsx
+            ─ BlogPostPage.jsx
+            ─ Contact.jsx
+            ─ Home.jsx
+            ─ NotFound.jsx
+        📁 posts
+            ─ becoming-a-web-developer.md
+            ─ giscus-comments.md
+            ─ learning-react.md
+        📁 styles
+            ─ markdown.css
+        ─ App.css
+        ─ App.jsx
+        ─ index.css
+        ─ main.jsx
+        ─ theme.js
+    ─ .env
+    ─ .env.example
+    ─ eslint.config.js
+    ─ index.html
+    ─ netlify.toml
+    ─ package-lock.json
+    ─ package.json
+    ─ README.md
+    ─ vite.config.js
+
 ```
-
----
 
 ## Blog
 

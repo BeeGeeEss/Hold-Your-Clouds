@@ -20,15 +20,35 @@ Computer says no... well... this one user on Stack Overflow said no.
 
 But they're dead wrong!
 
-![Comment from Stack Overflow](/public/stack-overflow.png)
+![Comment from Stack Overflow](/public/stack-overflow.png) [(Krall, 2015)](#references)
 
-## 3. Weighing up options...
+Turns out, there are plenty of options for light-weight comment section integrations - it's just about finding the right fit.
 
-### Emerging Technology
+## 3. Weighing up options
 
 ### Industry Trends
 
+Disqus has been the most widely used comment section integration for some time, given its rich features and functionality [(Nice, 2018)](#references), however, the introduction of paid plans, and revenue raising advertisments in the comment section has led a lot of developers to move onto newer options such as GitHub integrations [(Lock, 2022).](#references)
+
+### Emerging Technology
+
+Giscus and Utterances are two comment section options which utilise the GitHub API [(Giscus, n.d.; Utterances, n.d.)](#references). When directly compared, Giscus gives users the ability to 'react' to posts, it stacks comments in a conversation style, allows theming, and it keeps comments contained in the discussions tab on GitHub. Utterances instead combines comments with development issues, and stacks comments in order of submission. Many developers who previousy used Disqus/Utterances have migrated to Giscus for more user-friendly functionality [(Brenner, 2021; Kim, 2023)](#references).
+
+| Feature                      | Giscus                                                                                  | Utterances                                                                          |
+| ---------------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| **Underlying platform**      | GitHub Discussions                                                                      | GitHub Issues                                                                       |
+| **Authentication**           | GitHub account required                                                                 | GitHub account required                                                             |
+| **Frontend integration**     | JavaScript widget/component                                                             | JavaScript widget                                                                   |
+| **Database required**        | No separate database required                                                           | No separate database required                                                       |
+| **Backend required**         | No traditional backend required                                                         | No traditional backend required                                                     |
+| **Organisation of comments** | Designed specifically for discussions and conversations                                 | Comments are represented as issues and replies                                      |
+| **Best suited for**          | Blogs and websites requiring a dedicated discussion/comment system                      | Lightweight comment systems for static websites                                     |
+| **Advantages**               | More purpose-built for discussions; supports GitHub Discussion categories and reactions | Simple, lightweight, and well established                                           |
+| **Potential limitation**     | Requires GitHub Discussions to be enabled and configured                                | Uses GitHub Issues, which may mix website comments with software development issues |
+
 ### Solution
+
+The author was looking for a comment section that is free, easy to use, minimalist, and fosters a sense of community. As such, Giscus was deemed to be the most suitable and user-friendly option for the website's blog moving forward.
 
 ## 4. What is Giscus?
 
@@ -114,15 +134,15 @@ example-user/my-blog
 
 #### Repository ID
 
-A unique identifier for the GitHub repository.
+A unique identifier for the GitHub repository. Which can be generated once you complete configuration at [Giscus App.](https://giscus.app/)
 
 #### Category
 
-The GitHub Discussions category used by Giscus.
+The GitHub Discussions category used by Giscus. Which can be generated once you complete configuration at [Giscus App.](https://giscus.app/)
 
 #### Category ID
 
-A unique identifier for that discussion category.
+A unique identifier for that discussion category. Which can be generated once you complete configuration at [Giscus App.](https://giscus.app/)
 
 These values are generated when configuring Giscus for a GitHub repository.
 
@@ -131,6 +151,8 @@ These values are generated when configuring Giscus for a GitHub repository.
 ### Comment Mapping
 
 The website uses the blog post pathname to identify comments:
+
+![Configuration of Pathname](/public/configuration.png)
 
 ```javascript
 mapping = "pathname";
@@ -164,6 +186,28 @@ This allows the comments section to adapt between light and dark mode.
 
 ## 6. Environment Configuration
 
+The application uses environment variables for sensitive configuration.
+
+Example:
+
+```js
+repo = "USERNAME/REPOSITORY";
+repoId = "REPOSITORY_ID";
+category = "Announcements";
+categoryId = "CATEGORY_ID";
+mapping = "pathname";
+theme = "preferred_color_scheme";
+```
+
+These values should not be committed to GitHub.
+
+The `.env` file should be excluded from version control:
+
+```text
+.env
+.env.local
+```
+
 ## 7. Ethical Considerations
 
 ## 8. Troubleshooting
@@ -172,6 +216,20 @@ This allows the comments section to adapt between light and dark mode.
 
 ## References
 
-Jamstack. (n.d.). Jamstack. Retrieved July 26, 2026, from [https://jamstack.org/glossary/jamstack/](https://jamstack.org/glossary/jamstack/)
+Brenner, M. (2021, December 27). _Moving from utterances to giscus_. Ship It. [https://shipit.dev/posts/from-utterances-to-giscus.html](https://shipit.dev/posts/from-utterances-to-giscus.html)
+
+Giscus. (n.d.). _Giscus_. Retrieved July 26, 2026, from [https://giscus.app/](https://giscus.app/)
+
+Jamstack. (n.d.). _Jamstack_. Retrieved July 26, 2026, from [https://jamstack.org/glossary/jamstack/](https://jamstack.org/glossary/jamstack/)
+
+Kim, J. H. (2023, November 3). _Utterances VS Giscus_. Jung's Blog. [https://wjdgml3092.github.io/Blog/GatsbyComment/](https://wjdgml3092.github.io/Blog/GatsbyComment/)
+
+Krall, C. (2015, August 19). _How to create HTML comment box without database_ [Online forum post]. Stack Overflow. [https://stackoverflow.com/questions/32102131/how-to-create-html-comment-box-without-database](https://stackoverflow.com/questions/32102131/how-to-create-html-comment-box-without-database)
+
+Lock, A. (2022, July 26). _Considering replacing Disqus with Giscus_. .NET Escapades. [https://andrewlock.net/considering-replacing-disqus-with-giscus/](https://andrewlock.net/considering-replacing-disqus-with-giscus/)
+
+Utterances. (n.d.). _Utterances_. Retrieved July 26, 2026, from [https://utteranc.es/](https://utteranc.es/)
+
+Nice, B. (2018, November 16). _Most popular 3rd party comment systems for your website_. Medium. [https://medium.com/level-up-web/most-popular-3rd-party-comment-systems-for-your-website-9f4329a4c6bf](https://medium.com/level-up-web/most-popular-3rd-party-comment-systems-for-your-website-9f4329a4c6bf)
 
 ## Author

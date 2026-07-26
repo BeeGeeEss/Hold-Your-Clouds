@@ -11,10 +11,10 @@ export default function GiscusComments() {
     <section>
       <Giscus
         key={theme.palette.mode}
-        repo="BeeGeeEss/Hold-Your-Clouds"
-        repoId="R_kgDOTcMoug"
-        category="Announcements"
-        categoryId="DIC_kwDOTcMous4DBn-X"
+        repo={import.meta.env.VITE_GISCUS_REPO}
+        repoId={import.meta.env.VITE_GISCUS_REPO_ID}
+        category={import.meta.env.VITE_GISCUS_CATEGORY}
+        categoryId={import.meta.env.VITE_GISCUS_CATEGORY_ID}
         mapping="pathname"
         reactionsEnabled="1"
         emitMetadata="0"
