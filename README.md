@@ -2,6 +2,8 @@
 
 > Personal Website + Blog
 
+---
+
 Navigation:
 
 - [Features](#features)
@@ -161,6 +163,8 @@ The application then searches the posts data for the matching slug.
 Giscus is a commenting system that uses GitHub Discussions to provide comments on a website.
 
 Instead of building and maintaining a custom comments database and authentication system, Giscus allows visitors to interact with blog posts using GitHub-based discussions.
+
+[Read More Here!](https://hold-your-clouds.netlify.app/blog/giscus-comments)
 
 This is particularly useful for a personal blog because:
 
@@ -542,7 +546,7 @@ The build process:
 
 ---
 
-# Local Development
+## Local Development
 
 Install dependencies:
 
@@ -570,7 +574,7 @@ npm run lint
 
 ---
 
-# Architecture
+## Architecture
 
 The website follows a primarily front-end architecture.
 
@@ -600,7 +604,7 @@ The Netlify Function acts as a secure intermediary between the public front end 
 
 ---
 
-# Security Considerations
+## Security Considerations
 
 The application does not expose the Brevo API key to the browser.
 
@@ -616,23 +620,16 @@ The Brevo API key remains on the server side.
 
 ---
 
-# Future Improvements
+## Future Improvements
 
 Potential future improvements include:
 
 - Additional blog posts
 - Improved form validation
-- Rate limiting for the subscription endpoint
-- CAPTCHA or bot protection
 - Email confirmation workflows
 - Newsletter welcome emails
-- More advanced blog search
 - Blog post categories and filtering
-- Reading time estimates
-- RSS feed support
-- Analytics
-- Automated blog content management
-- Additional serverless functions
+- About page
 
 ---
 

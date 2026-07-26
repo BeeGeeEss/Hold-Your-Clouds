@@ -2,7 +2,12 @@ export async function handler(event) {
   if (event.httpMethod !== "POST") {
     return {
       statusCode: 405,
-      body: JSON.stringify({ message: "Method Not Allowed" }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        message: "Method Not Allowed",
+      }),
     };
   }
 
@@ -14,7 +19,12 @@ export async function handler(event) {
     if (!cleanEmail) {
       return {
         statusCode: 400,
-        body: JSON.stringify({ message: "Email is required" }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: "Email is required",
+        }),
       };
     }
 
@@ -23,17 +33,29 @@ export async function handler(event) {
     if (!emailIsValid) {
       return {
         statusCode: 400,
-        body: JSON.stringify({ message: "Please enter a valid email address" }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: "Please enter a valid email address",
+        }),
       };
     }
 
     const apiKey = process.env.BREVO_API_KEY;
     const listId = Number(process.env.BREVO_LIST_ID);
 
-    if (!apiKey || !listId) {
-      console.error("Missing Brevo environment variables");
+    console.log("Brevo API key exists:", Boolean(apiKey));
+    console.log("Brevo list ID:", listId);
+
+    if (!apiKey || !Number.isInteger(listId) || listId <= 0) {
+      console.error("Missing or invalid Brevo environment variables");
+
       return {
         statusCode: 500,
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
           message: "Subscription service is not configured correctly",
         }),
@@ -60,6 +82,9 @@ export async function handler(event) {
     if (!brevoResponse.ok) {
       return {
         statusCode: brevoResponse.status,
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
           message: brevoData.message || "Unable to subscribe at this time",
         }),
@@ -68,13 +93,21 @@ export async function handler(event) {
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: "Successfully subscribed!" }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        message: "Successfully subscribed!",
+      }),
     };
   } catch (error) {
     console.error("Subscription error:", error);
 
     return {
       statusCode: 500,
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         message: "Something went wrong. Please try again later.",
       }),

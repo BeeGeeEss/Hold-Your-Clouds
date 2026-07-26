@@ -28,20 +28,20 @@ const posts = [
     date: "2026-07-20",
     featured: false,
     readTime: "4 min read",
-    image: "../assets/react-logo.svg",
+    image: "/react-logo.svg",
     content: learningReact,
   },
 
   {
     id: 3,
     slug: "giscus-comments",
-    title: "Giscus Comments: Light-Weight Integration for Your Blog",
+    title: "Giscus Comments: Light-Weight Integration",
     excerpt: "...",
     category: "Giscus",
     date: "2026-07-26",
     featured: true,
     readTime: "15 min read",
-    image: null,
+    image: "/comments-with-giscus.png",
     content: giscusComments,
   },
 ];
