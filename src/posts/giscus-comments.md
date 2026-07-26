@@ -28,7 +28,7 @@ Turns out, there are plenty of options for light-weight comment section integrat
 
 ### Industry Trends
 
-Disqus has been the most widely used comment section integration for some time, given its rich features and functionality [(Nice, 2018)](#references), however, the introduction of paid plans, and revenue raising advertisments in the comment section has led a lot of developers to move onto newer options such as GitHub integrations [(Lock, 2022).](#references)
+Disqus has been the most widely used comment section integration for some time, given its rich features and functionality [(Nice, 2018)](#references), however, the introduction of paid plans, and revenue raising advertisments in the comment section has led a lot of developers to move onto newer options such as GitHub integrations [(Lock, 2022; Rascia, 2019)](#references).
 
 ### Emerging Technology
 
@@ -134,15 +134,15 @@ example-user/my-blog
 
 #### Repository ID
 
-A unique identifier for the GitHub repository. Which can be generated once you complete configuration at [Giscus App.](https://giscus.app/)
+A unique identifier for the GitHub repository. Which can be generated once you complete configuration at [Giscus App](https://giscus.app/).
 
 #### Category
 
-The GitHub Discussions category used by Giscus. Which can be generated once you complete configuration at [Giscus App.](https://giscus.app/)
+The GitHub Discussions category used by Giscus. Which can be generated once you complete configuration at [Giscus App](https://giscus.app/).
 
 #### Category ID
 
-A unique identifier for that discussion category. Which can be generated once you complete configuration at [Giscus App.](https://giscus.app/)
+A unique identifier for that discussion category. Which can be generated once you complete configuration at [Giscus App](https://giscus.app/).
 
 These values are generated when configuring Giscus for a GitHub repository.
 
@@ -184,6 +184,14 @@ This allows the comments section to adapt between light and dark mode.
 
 ### Technology, skill, knowledge
 
+The technology required to implement a Giscus comment section is GitHub, your code-editor of choice (VSCode), and the service that you're using to deploy your site (Netlify).
+
+You require knowledge on how to setup an .env file, a .gitignore file and a static webpage. In this case React was used to create a GiscusComments component on a blog webpage, the GiscusComments component used the environment variables from the .env file - and once deployed to Netlify was active for use.
+
+The skill level for this 3rd party integration is beginner level. The most complicated part is adjusting GitHub preferences, and setting up the environment variables in the Giscus configuration.
+
+---
+
 ## 6. Environment Configuration
 
 The application uses environment variables for sensitive configuration.
@@ -210,9 +218,33 @@ The `.env` file should be excluded from version control:
 
 ## 7. Ethical Considerations
 
-## 8. Troubleshooting
+### Revenue
 
-## 9. See it in ACTION
+Giscus is a free open-source integration that does not rely on paid plans or advertising. Thankfully, because it utilizes GitHub's API - it's likely to remain free and open source.
+
+### Sensitive Information
+
+Sensitive information used to configure Giscus is stored in your .env file, .env is included in your .gitignore file and your sensitive data is not exposed when you commit to GitHub.
+
+### Accessibility
+
+Unfortunately, Giscus can only be used by registered GitHub users, as you need to authenticate your profile to be able to access the comment section. This decreases the number of users who are able to interact with your site.
+
+### Data Storage
+
+Users data is stored on GitHub, which is likely more secure than if the author had built a database themselves, however each user should read how GitHub store data from discussions before using this integration [(yier03, 2011)](#references).
+
+### Privacy
+
+Because Giscus requires you to sign into GitHub to leave a comment, the comment is tied to the users' public profile, and the user is not able to remain anonymous, or easily remove a comment.
+
+### Transportability
+
+You can't migrate comment histories to Giscus and you can't migrate comment history from Giscus, it remains tied to GitHub discussions.
+
+## 9. SEE IT IN ACTION!
+
+Scroll to the bottom of this blogpost to see Giscus Comments live - don't forget to subscribe to future blogposts on the way.
 
 ## References
 
@@ -228,8 +260,14 @@ Krall, C. (2015, August 19). _How to create HTML comment box without database_ [
 
 Lock, A. (2022, July 26). _Considering replacing Disqus with Giscus_. .NET Escapades. [https://andrewlock.net/considering-replacing-disqus-with-giscus/](https://andrewlock.net/considering-replacing-disqus-with-giscus/)
 
-Utterances. (n.d.). _Utterances_. Retrieved July 26, 2026, from [https://utteranc.es/](https://utteranc.es/)
-
 Nice, B. (2018, November 16). _Most popular 3rd party comment systems for your website_. Medium. [https://medium.com/level-up-web/most-popular-3rd-party-comment-systems-for-your-website-9f4329a4c6bf](https://medium.com/level-up-web/most-popular-3rd-party-comment-systems-for-your-website-9f4329a4c6bf)
 
+Rascia, T. (2019, August 16). _Roll your own comment system for a static site_. Tania Rascia's Website. [https://www.taniarascia.com/add-comments-to-static-site/](https://www.taniarascia.com/add-comments-to-static-site/)
+
+Utterances. (n.d.). _Utterances_. Retrieved July 26, 2026, from [https://utteranc.es/](https://utteranc.es/)
+
+yier03. (2025, September 11). _How does GitHub handle data privacy, and what steps can users take to protect their personal information?_ [Online forum post]. GitHub Community. [https://github.com/orgs/community/discussions/173204](https://github.com/orgs/community/discussions/173204)
+
 ## Author
+
+[✨BeeGeeEss✨ | 26 July, 2026](https://github.com/BeeGeeEss)
