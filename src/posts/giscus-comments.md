@@ -1,14 +1,26 @@
-# Creating a User-Friendly Blog
+# Creating a User-Friendly Blog Experience
 
 ![Giscus Comments](/comments-with-giscus.png)
 
 > The 'Hold Your Clouds' website is a client-side React application using decoupled, API-driven architecture and third-party services for specialised functionality.
-> The website features a Blog and it was important to the author to enable users to leave comments and reactions to blogposts. However, the author didn't have any need for a backend application.
-> The following blogpost details the decision-making behind integrating a light-weight Giscus comment section to blogposts, rather than building in traditional database.
+> The website features a Blog for sharing thoughts and learnings about web development - it was important to the author to enable users to leave comments and reactions to blogposts, without needing to rely on a backend app.
+> The following blogpost details the decision-making behind integrating a light-weight Giscus comment section to blogposts, rather than building in a traditional database.
 
 ## 1. What's the problem?
 
-## 2. Could it be done?
+Though this React app is not a pure “Jamstack” application, the underlying concept was to build a decoupled frontend that could remain largely static while integrating APIs and third-party services for functionality [(Jamstack, n.d.)](#references). This approach reduces the need to build and maintain a traditional backend, while also minimising the amount of custom authentication, authorisation, and security infrastructure required within the application itself.
+
+However, a website and blog without any interactive features would be quite a dull user experience. The author wanted users to be able to leave comments and provide different perspectives so that users as a community could build on these experiences.
+
+The author set out to find a way to do this through 3rd party integrations, without needing to rely on a database or author-developed backend features for this project.
+
+## 2. Can it be done?
+
+Computer says no... well... this one user on Stack Overflow said no.
+
+But they're dead wrong!
+
+![Comment from Stack Overflow](/public/stack-overflow.png)
 
 ## 3. Weighing up options...
 
@@ -157,3 +169,9 @@ This allows the comments section to adapt between light and dark mode.
 ## 8. Troubleshooting
 
 ## 9. See it in ACTION
+
+## References
+
+Jamstack. (n.d.). Jamstack. Retrieved July 26, 2026, from [https://jamstack.org/glossary/jamstack/](https://jamstack.org/glossary/jamstack/)
+
+## Author
