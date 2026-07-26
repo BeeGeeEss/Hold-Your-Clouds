@@ -1,0 +1,69 @@
+<svg width="700" height="520" viewBox="0 0 700 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="700" height="520" rx="32" fill="#F8F5FF"></rect>
+
+  <!-- Decorative stars -->
+  <path d="M100 115L106 130L121 136L106 142L100 157L94 142L79 136L94 130L100 115Z" fill="#7ED957"></path>
+
+  <path d="M585 110L590 123L603 128L590 133L585 146L580 133L567 128L580 123L585 110Z" fill="#8C52FF"></path>
+
+  <path d="M610 350L614 361L625 365L614 369L610 380L606 369L595 365L606 361L610 350Z" fill="#7ED957"></path>
+
+  <circle cx="130" cy="350" r="8" fill="#8C52FF"></circle>
+
+  <circle cx="560" cy="180" r="7" fill="#7ED957"></circle>
+
+  <!-- Main cloud -->
+  <path d="
+      M205 310
+      C168 310 140 283 140 249
+      C140 216 166 190 199 188
+      C208 145 247 115 294 115
+      C342 115 382 145 392 188
+      C401 185 411 183 421 183
+      C458 183 488 212 488 248
+      C488 283 460 310 425 310
+      Z
+    " fill="white" stroke="#8C52FF" stroke-width="9" stroke-linejoin="round"></path>
+
+  <!-- Cloud face -->
+  <circle cx="270" cy="220" r="7" fill="#342052"></circle>
+
+  <circle cx="365" cy="220" r="7" fill="#342052"></circle>
+
+  <!-- Smile -->
+  <path d="M295 245C305 258 329 258 340 245" stroke="#342052" stroke-width="6" stroke-linecap="round"></path>
+
+  <!-- Hard hat -->
+  <path d="
+      M235 148
+      C238 112 265 89 302 89
+      C339 89 367 112 370 148
+      Z
+    " fill="#7ED957" stroke="#342052" stroke-width="7"></path>
+
+  <path d="M222 148H383" stroke="#342052" stroke-width="9" stroke-linecap="round"></path>
+
+  <path d="M302 91V148" stroke="#342052" stroke-width="6"></path>
+
+  <!-- Tool belt -->
+  <path d="M215 295H410" stroke="#8C52FF" stroke-width="14" stroke-linecap="round"></path>
+
+  <rect x="250" y="290" width="48" height="42" rx="8" fill="#7ED957" stroke="#342052" stroke-width="6"></rect>
+
+  <rect x="335" y="290" width="48" height="42" rx="8" fill="#8C52FF" stroke="#342052" stroke-width="6"></rect>
+
+  <!-- Small tools -->
+  <path d="M150 395L185 360" stroke="#342052" stroke-width="8" stroke-linecap="round"></path>
+
+  <path d="M175 350L195 370" stroke="#7ED957" stroke-width="12" stroke-linecap="round"></path>
+
+  <!-- Ground -->
+  <path d="M145 435H590" stroke="#8C52FF" stroke-width="8" stroke-linecap="round"></path>
+
+  <!-- Floating dots -->
+  <circle cx="190" cy="165" r="5" fill="#7ED957"></circle>
+
+  <circle cx="475" cy="145" r="5" fill="#8C52FF"></circle>
+
+</svg>

@@ -28,10 +28,12 @@ export default async (req) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        // eslint-disable-next-line no-undef
         "api-key": process.env.BREVO_API_KEY,
       },
       body: JSON.stringify({
         email,
+        // eslint-disable-next-line no-undef
         listIds: [Number(process.env.BREVO_LIST_ID)],
         updateEnabled: true,
       }),
