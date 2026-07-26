@@ -5,98 +5,81 @@ import { Box, Button, Divider, TextField, Typography } from "@mui/material";
 import GiscusComments from "../shared/GiscusComments";
 
 export default function PostActions() {
-const [email, setEmail] = useState("");
+  const [email, setEmail] = useState("");
 
-function handleSubscribe(event) {
-event.preventDefault();
+  function handleSubscribe(event) {
+    event.preventDefault();
 
-if (!email) {
-  return;
-}
+    if (!email) {
+      return;
+    }
 
-/*
-  Replace this with your Buttondown form endpoint.
+    alert("Thanks for subscribing!");
 
-  Example:
+    setEmail("");
+  }
 
-  fetch("https://buttondown.com/api/emails/embed-subscribe/YOUR_USERNAME", {
-    method: "POST",
-    body: new FormData(event.target),
-  });
-*/
-
-alert("Thanks for subscribing!");
-
-setEmail("");
-```
-
-}
-
-return (
-<Box
-sx={{
-mt: 6,
-}}
->
-<Divider sx={{ mb: 4 }} />
-
-```
-  {/* SUBSCRIBE */}
-
-  <Box
-    sx={{
-      textAlign: "center",
-      mb: 6,
-    }}
-  >
-    <Typography
-      variant="h5"
-      sx={{
-        mb: 1,
-        fontWeight: 700,
-      }}
-    >
-      Subscribe to the blog
-    </Typography>
-
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      sx={{
-        mb: 3,
-      }}
-    >
-      Get new posts delivered straight to your inbox.
-    </Typography>
-
+  return (
     <Box
-      component="form"
-      onSubmit={handleSubscribe}
       sx={{
-        display: "flex",
-        gap: 1,
-        maxWidth: 500,
-        mx: "auto",
+        mt: 6,
       }}
     >
-      <TextField
-        fullWidth
-        type="email"
-        label="Email address"
-        value={email}
-        onChange={(event) => setEmail(event.target.value)}
-        required
-      />
+      <Divider sx={{ mb: 4 }} />
+      ```
+      {/* SUBSCRIBE */}
+      <Box
+        sx={{
+          textAlign: "center",
+          mb: 6,
+        }}
+      >
+        <Typography
+          variant="h5"
+          sx={{
+            mb: 1,
+            fontWeight: 700,
+          }}
+        >
+          Subscribe to the blog
+        </Typography>
 
-      <Button type="submit" variant="contained">
-        Subscribe
-      </Button>
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          sx={{
+            mb: 3,
+          }}
+        >
+          Get new posts delivered straight to your inbox.
+        </Typography>
+
+        <Box
+          component="form"
+          onSubmit={handleSubscribe}
+          sx={{
+            display: "flex",
+            gap: 1,
+            maxWidth: 500,
+            mx: "auto",
+          }}
+        >
+          <TextField
+            fullWidth
+            type="email"
+            label="Email address"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            required
+          />
+
+          <Button type="submit" variant="contained">
+            Subscribe
+          </Button>
+        </Box>
+      </Box>
+      {/* COMMENTS */}
+      <GiscusComments />
     </Box>
-  </Box>
-
-  {/* COMMENTS */}
-
-  <GiscusComments />
-</Box>
-);
+  );
 }

@@ -113,7 +113,6 @@ export default function SubscribeForm() {
           )}
         </Paper>
       </Container>
-      ){" "}
     </Box>
   );
 }
