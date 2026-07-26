@@ -1,5 +1,6 @@
 import becomingAWebDeveloper from "../posts/becoming-a-web-developer.md?raw";
 import learningReact from "../posts/learning-react.md?raw";
+import giscusComments from "../posts/giscus-comments.md?raw";
 
 const posts = [
   {
@@ -10,6 +11,7 @@ const posts = [
       "My journey learning web development and the technologies I have been working with.",
     category: "Web Development",
     date: "2026-07-21",
+    featured: false,
     readTime: "5 min read",
     image:
       "https://images.unsplash.com/photo-1522152302542-71a8e5172aa1?q=80&w=1008&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -24,9 +26,23 @@ const posts = [
       "Some of the things I have learned while building applications with React.",
     category: "React",
     date: "2026-07-20",
+    featured: false,
     readTime: "4 min read",
-    image: null,
+    image: "../assets/react-logo.svg",
     content: learningReact,
+  },
+
+  {
+    id: 3,
+    slug: "giscus-comments",
+    title: "Giscus Comments: Light-Weight Integration for Your Blog",
+    excerpt: "...",
+    category: "Giscus",
+    date: "2026-07-26",
+    featured: true,
+    readTime: "15 min read",
+    image: null,
+    content: giscusComments,
   },
 ];
 

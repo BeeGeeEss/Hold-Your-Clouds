@@ -23,7 +23,7 @@ import SubscribeForm from "../components/shared/SubscribeForm";
 
 export default function HomePage() {
   const latestPosts = posts.slice(0, 3);
-  const featuredPost = posts[0];
+  const featuredPost = posts.find((post) => post.featured === true);
 
   return (
     <Box className="home-page">

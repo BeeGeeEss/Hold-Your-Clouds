@@ -2,6 +2,8 @@
 
 React has completely changed the way I think about building websites.
 
+![React Logo](/react-logo.svg)
+
 Instead of creating one large page, React allows you to break an application into smaller reusable components.
 
 For example:

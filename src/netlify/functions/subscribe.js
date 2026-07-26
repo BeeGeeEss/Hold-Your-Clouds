@@ -1,64 +1,46 @@
-export default async (req) => {
-  if (req.method !== "POST") {
-    return Response.json(
-      {
-        message: "Method Not Allowed",
-      },
-      {
-        status: 405,
-      },
-    );
+export async function handler(event) {
+  if (event.httpMethod !== "POST") {
+    return {
+      statusCode: 405,
+      body: JSON.stringify({ message: "Method Not Allowed" }),
+    };
   }
 
   try {
-    const { email } = await req.json();
+    const { email } = JSON.parse(event.body || "{}");
 
     const cleanEmail = email?.trim();
 
     if (!cleanEmail) {
-      return Response.json(
-        {
-          message: "Email is required",
-        },
-        {
-          status: 400,
-        },
-      );
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ message: "Email is required" }),
+      };
     }
 
     const emailIsValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail);
 
     if (!emailIsValid) {
-      return Response.json(
-        {
-          message: "Please enter a valid email address",
-        },
-        {
-          status: 400,
-        },
-      );
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ message: "Please enter a valid email address" }),
+      };
     }
 
-    // eslint-disable-next-line no-undef
     const apiKey = process.env.BREVO_API_KEY;
-    // eslint-disable-next-line no-undef
     const listId = Number(process.env.BREVO_LIST_ID);
 
-    // eslint-disable-next-line no-undef
-    if (!apiKey || !process.env.BREVO_LIST_ID || Number.isNaN(listId)) {
-      console.error("Brevo environment variables are missing or invalid");
-
-      return Response.json(
-        {
+    if (!apiKey || !listId) {
+      console.error("Missing Brevo environment variables");
+      return {
+        statusCode: 500,
+        body: JSON.stringify({
           message: "Subscription service is not configured correctly",
-        },
-        {
-          status: 500,
-        },
-      );
+        }),
+      };
     }
 
-    const response = await fetch("https://api.brevo.com/v3/contacts", {
+    const brevoResponse = await fetch("https://api.brevo.com/v3/contacts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -71,36 +53,31 @@ export default async (req) => {
       }),
     });
 
-    const data = await response.json();
+    const brevoData = await brevoResponse.json();
 
-    console.log("Brevo response status:", response.status);
+    console.log("Brevo response:", brevoResponse.status, brevoData);
 
-    if (!response.ok) {
-      console.error("Brevo subscription failed:", data);
-
-      return Response.json(
-        {
-          message: "Unable to subscribe at this time",
-        },
-        {
-          status: response.status,
-        },
-      );
+    if (!brevoResponse.ok) {
+      return {
+        statusCode: brevoResponse.status,
+        body: JSON.stringify({
+          message: brevoData.message || "Unable to subscribe at this time",
+        }),
+      };
     }
 
-    return Response.json({
-      message: "Successfully subscribed!",
-    });
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ message: "Successfully subscribed!" }),
+    };
   } catch (error) {
     console.error("Subscription error:", error);
 
-    return Response.json(
-      {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
         message: "Something went wrong. Please try again later.",
-      },
-      {
-        status: 500,
-      },
-    );
+      }),
+    };
   }
-};
+}
