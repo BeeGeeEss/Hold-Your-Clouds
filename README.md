@@ -114,7 +114,7 @@ netlify/
 
 ---
 
-# Blog
+## Blog
 
 The blog uses a data-driven approach where each post is stored as an object in the `src/data/posts.js` file.
 
@@ -154,9 +154,9 @@ The application then searches the posts data for the matching slug.
 
 ---
 
-# Giscus Comments
+## Giscus Comments
 
-## What is Giscus?
+### What is Giscus?
 
 Giscus is a commenting system that uses GitHub Discussions to provide comments on a website.
 
@@ -171,9 +171,11 @@ This is particularly useful for a personal blog because:
 - The commenting system can be embedded directly into blog posts
 - It fits well with a front-end-focused architecture
 
+See [Giscuss Docs Here!](https://giscus.app/)
+
 ---
 
-## How Giscus Works
+### How Giscus Works
 
 The general flow is:
 
@@ -220,11 +222,11 @@ export default function GiscusComments() {
 
 ---
 
-## Giscus Configuration
+### Giscus Configuration
 
 Giscus requires several values from the GitHub repository:
 
-### Repository
+#### Repository
 
 The GitHub repository where discussions are enabled.
 
@@ -238,15 +240,15 @@ For example:
 example-user/my-blog
 ```
 
-### Repository ID
+#### Repository ID
 
 A unique identifier for the GitHub repository.
 
-### Category
+#### Category
 
 The GitHub Discussions category used by Giscus.
 
-### Category ID
+#### Category ID
 
 A unique identifier for that discussion category.
 
@@ -254,7 +256,7 @@ These values are generated when configuring Giscus for a GitHub repository.
 
 ---
 
-## Comment Mapping
+### Comment Mapping
 
 The website uses the blog post pathname to identify comments:
 
@@ -274,7 +276,7 @@ This is important because each blog post needs its own separate discussion threa
 
 ---
 
-## Giscus and the Website Theme
+### Giscus and the Website Theme
 
 The Giscus theme can be configured to respond to the user's system colour scheme:
 
@@ -286,15 +288,17 @@ This allows the comments section to adapt between light and dark mode.
 
 ---
 
-# Brevo Newsletter Subscription
+## Brevo Newsletter Subscription
 
-## What is Brevo?
+### What is Brevo?
 
 Brevo is used to manage email newsletter subscribers.
 
 The website contains a subscription form that allows visitors to enter their email address. The front end sends the email address to a Netlify Function, which then communicates securely with the Brevo API.
 
 The API key is not exposed to the browser.
+
+See [Brevo Docs Here!](https://developers.brevo.com/docs/getting-started)
 
 ---
 
@@ -360,7 +364,7 @@ The Netlify Function then accesses the private environment variables and communi
 
 ---
 
-## Netlify Function
+### Netlify Function
 
 The subscription function is located at:
 
@@ -426,7 +430,7 @@ export async function handler(event) {
 
 ---
 
-## Environment Variables
+### Environment Variables
 
 The Brevo credentials are stored as environment variables in Netlify.
 
@@ -457,7 +461,7 @@ This keeps sensitive credentials on the server side rather than exposing them in
 
 ---
 
-## Front-End Subscription Form
+### Front-End Subscription Form
 
 The subscription form collects the visitor's email address and sends it to the Netlify Function.
 
@@ -487,7 +491,7 @@ The user can then be shown a success or error message depending on the result.
 
 ---
 
-# Environment Configuration
+## Environment Configuration
 
 The application uses environment variables for sensitive configuration.
 
@@ -513,7 +517,7 @@ Private credentials such as the Brevo API key should not use `VITE_`.
 
 ---
 
-# Deployment
+## Deployment
 
 The application is deployed through Netlify.
 
