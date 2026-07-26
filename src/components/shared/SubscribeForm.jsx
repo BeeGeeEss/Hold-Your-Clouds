@@ -51,10 +51,15 @@ export default function SubscribeForm() {
   return (
     <Paper
       sx={{
+        width: "100%",
+        maxWidth: "800px",
+        mx: "auto",
         p: { xs: 3, md: 4 },
         mb: 6,
-        borderRadius: 3,
+        borderRadius: 4,
         textAlign: "center",
+        backgroundColor: "#8C52FF",
+        color: "white",
       }}
     >
       <Typography
@@ -68,9 +73,9 @@ export default function SubscribeForm() {
       </Typography>
 
       <Typography
-        color="text.secondary"
         sx={{
           mb: 3,
+          color: "rgba(255, 255, 255, 0.9)",
         }}
       >
         Get new posts delivered straight to your inbox.
@@ -98,7 +103,8 @@ export default function SubscribeForm() {
               border: "1px solid",
               borderColor: "divider",
               fontSize: "1rem",
-              backgroundColor: "background.paper",
+              backgroundColor: "white",
+              color: "black",
             }}
           />
 
@@ -106,6 +112,14 @@ export default function SubscribeForm() {
             type="submit"
             variant="contained"
             disabled={status === "loading"}
+            sx={{
+              backgroundColor: "white",
+              color: "#8C52FF",
+              fontWeight: 600,
+              "&:hover": {
+                backgroundColor: "#f2eaff",
+              },
+            }}
           >
             {status === "loading" ? "Subscribing..." : "Subscribe"}
           </Button>
@@ -113,15 +127,13 @@ export default function SubscribeForm() {
       </Box>
 
       {status === "success" && (
-        <Typography color="success.main" sx={{ mt: 2 }}>
+        <Typography sx={{ mt: 2, color: "white" }}>
           Thanks for subscribing! ☁
         </Typography>
       )}
 
       {status !== "idle" && status !== "loading" && status !== "success" && (
-        <Typography color="error.main" sx={{ mt: 2 }}>
-          {status}
-        </Typography>
+        <Typography sx={{ mt: 2, color: "#ffdddd" }}>{status}</Typography>
       )}
     </Paper>
   );
