@@ -1,24 +1,9 @@
-import { useState } from "react";
-
-import { Box, Button, Divider, TextField, Typography } from "@mui/material";
+import { Box, Divider } from "@mui/material";
 
 import GiscusComments from "../shared/GiscusComments";
+import SubscribeForm from "../shared/SubscribeForm";
 
 export default function PostActions() {
-  const [email, setEmail] = useState("");
-
-  function handleSubscribe(event) {
-    event.preventDefault();
-
-    if (!email) {
-      return;
-    }
-
-    alert("Thanks for subscribing!");
-
-    setEmail("");
-  }
-
   return (
     <Box
       sx={{
@@ -26,58 +11,9 @@ export default function PostActions() {
       }}
     >
       <Divider sx={{ mb: 4 }} />
-      ```
       {/* SUBSCRIBE */}
-      <Box
-        sx={{
-          textAlign: "center",
-          mb: 6,
-        }}
-      >
-        <Typography
-          variant="h5"
-          sx={{
-            mb: 1,
-            fontWeight: 700,
-          }}
-        >
-          Subscribe to the blog
-        </Typography>
+      <SubscribeForm />
 
-        <Typography
-          variant="body2"
-          color="text.secondary"
-          sx={{
-            mb: 3,
-          }}
-        >
-          Get new posts delivered straight to your inbox.
-        </Typography>
-
-        <Box
-          component="form"
-          onSubmit={handleSubscribe}
-          sx={{
-            display: "flex",
-            gap: 1,
-            maxWidth: 500,
-            mx: "auto",
-          }}
-        >
-          <TextField
-            fullWidth
-            type="email"
-            label="Email address"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            required
-          />
-
-          <Button type="submit" variant="contained">
-            Subscribe
-          </Button>
-        </Box>
-      </Box>
       {/* COMMENTS */}
       <GiscusComments />
     </Box>

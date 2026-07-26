@@ -1,12 +1,5 @@
 import { useState } from "react";
-import {
-  Box,
-  Button,
-  Container,
-  Paper,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Paper, Stack, Typography } from "@mui/material";
 
 export default function SubscribeForm() {
   const [email, setEmail] = useState("");
@@ -26,7 +19,22 @@ export default function SubscribeForm() {
         body: JSON.stringify({ email }),
       });
 
-      const data = await response.json();
+      const responseText = await response.text();
+
+      console.log("Response status:", response.status);
+      console.log("Response body:", responseText);
+
+      let data = {};
+
+      if (responseText) {
+        try {
+          data = JSON.parse(responseText);
+        } catch {
+          throw new Error(
+            `The server returned an invalid response (${response.status})`,
+          );
+        }
+      }
 
       if (!response.ok) {
         throw new Error(data.message || "Subscription failed");
@@ -36,83 +44,85 @@ export default function SubscribeForm() {
       setEmail("");
     } catch (error) {
       console.error("Subscription error:", error);
-      setStatus("error");
+      setStatus(error.message || "Something went wrong");
     }
   }
 
   return (
-    <Box
+    <Paper
       sx={{
-        py: 8,
-        backgroundColor: "primary.light",
+        p: { xs: 3, md: 4 },
+        mb: 6,
+        borderRadius: 3,
+        textAlign: "center",
       }}
     >
-      <Container maxWidth="md">
-        <Paper
-          sx={{
-            p: { xs: 4, md: 6 },
-            borderRadius: 4,
-            textAlign: "center",
-          }}
+      <Typography
+        variant="h5"
+        sx={{
+          mb: 1,
+          fontWeight: 700,
+        }}
+      >
+        Subscribe to the blog{" "}
+      </Typography>
+
+      <Typography
+        color="text.secondary"
+        sx={{
+          mb: 3,
+        }}
+      >
+        Get new posts delivered straight to your inbox.
+      </Typography>
+
+      <Box component="form" onSubmit={handleSubmit}>
+        <Stack
+          direction={{ xs: "column", sm: "row" }}
+          spacing={1}
+          justifyContent="center"
         >
-          <Typography variant="h3" sx={{ mb: 2 }}>
-            Enjoying the content?
-          </Typography>
+          <Box
+            component="input"
+            type="email"
+            required
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            placeholder="Your email address"
+            sx={{
+              flex: 1,
+              minWidth: 0,
+              px: 2,
+              py: 1.5,
+              borderRadius: 1,
+              border: "1px solid",
+              borderColor: "divider",
+              fontSize: "1rem",
+              backgroundColor: "background.paper",
+            }}
+          />
 
-          <Typography color="text.secondary" sx={{ mb: 4 }}>
-            Subscribe to get new posts and updates in your inbox.
-          </Typography>
+          <Button
+            type="submit"
+            variant="contained"
+            disabled={status === "loading"}
+          >
+            {status === "loading" ? "Subscribing..." : "Subscribe"}
+          </Button>
+        </Stack>
+      </Box>
 
-          <Box component="form" onSubmit={handleSubmit}>
-            <Stack
-              direction={{ xs: "column", sm: "row" }}
-              spacing={2}
-              justifyContent="center"
-            >
-              <Box
-                component="input"
-                type="email"
-                required
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-                placeholder="Your email address"
-                sx={{
-                  flex: 1,
-                  maxWidth: 400,
-                  px: 2,
-                  py: 1.5,
-                  borderRadius: 2,
-                  border: "1px solid",
-                  borderColor: "divider",
-                  fontSize: "1rem",
-                  backgroundColor: "background.paper",
-                }}
-              />
+      {status === "success" && (
+        <Typography color="success.main" sx={{ mt: 2 }}>
+          Thanks for subscribing! ☁
+        </Typography>
+      )}
 
-              <Button
-                type="submit"
-                variant="contained"
-                size="large"
-                disabled={status === "loading"}
-              >
-                {status === "loading" ? "Subscribing..." : "Subscribe"}
-              </Button>
-            </Stack>
-          </Box>
-
-          {status === "success" && (
-            <Typography color="success.main" sx={{ mt: 3 }}>
-              Thanks for subscribing! ☁
-            </Typography>
-          )}
-
-          {status === "error" && (
-            <Typography color="error.main" sx={{ mt: 3 }}>
-              Something went wrong. Please try again.
-            </Typography>
-          )}
-        </Paper>
-      </Container>
-    </Box>
+      {status !== "idle" && status !== "loading" && status !== "success" && (
+        <Typography color="error.main" sx={{ mt: 2 }}>
+          {status}
+        </Typography>
+      )}
+    </Paper>
   );
 }
