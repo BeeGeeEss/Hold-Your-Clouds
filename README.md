@@ -67,6 +67,21 @@ The application is built with React and Vite, styled with Material UI, and deplo
 
 ---
 
+## Installation
+
+To download and run this project locally, clone the repository from GitHub.
+
+### Clone the repository
+
+Open a terminal and run:
+
+````bash
+git clone https://github.com/beegeeess/hold-your-clouds.git
+cd hold-your-clouds
+npm install
+npm run dev
+
+
 ## Project Structure
 
 ```js
@@ -126,7 +141,7 @@ The application is built with React and Vite, styled with Material UI, and deplo
     ─ README.md
     ─ vite.config.js
 
-```
+````
 
 ## Blog
 
